@@ -1,0 +1,42 @@
+@use "../styles/tokens" as t;
+
+:root {
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  font-family: t.$font-latin, t.$font-devanagari;
+  background: t.$cream;
+  color: t.$brown;
+  line-height: 1.7;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html[lang="mr"] body, html[lang="hi"] body {
+  font-family: t.$font-devanagari, t.$font-latin;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid t.$gold;
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,18 @@
+@use "../styles/tokens" as t;
+.dialog { border: 0; border-radius: t.$radius-lg; padding: 24px; width: min(460px, 92vw); background: t.$cream; color: t.$brown; }
+.dialog::backdrop { background: rgba(84,39,25,.6); }
+.dialog label { display: block; font-weight: 600; font-size: .9rem; margin-top: 12px; }
+.dialog input, .dialog textarea {
+  width: 100%; min-height: 48px; border: 1.5px solid #cdb685; border-radius: 12px; padding: 10px 14px;
+  font: inherit; background: #fff; color: inherit; margin-top: 4px;
+}
+.err { color: t.$maroon; font-size: .85rem; min-height: 1.3em; margin-top: 8px; }
+.summary { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: .9rem; white-space: pre-line; margin-top: 8px; }
+.submit {
+  width: 100%; min-height: 48px; margin-top: 16px; border-radius: t.$radius-pill; border: 0;
+  background: t.$maroon; color: t.$cream; font: 600 1rem Inter, sans-serif; cursor: pointer;
+}
+.cancel {
+  width: 100%; min-height: 44px; margin-top: 8px; border-radius: t.$radius-pill; border: 0;
+  background: transparent; color: t.$brown; font: 500 .95rem Inter, sans-serif; cursor: pointer;
+}

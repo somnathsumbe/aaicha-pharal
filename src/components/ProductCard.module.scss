@@ -1,0 +1,26 @@
+@use "../styles/tokens" as t;
+.card { background: #fff; border-radius: t.$radius-lg; overflow: hidden; border: 1px solid t.$border-tint; display: flex; flex-direction: column; }
+.tile { position: relative; aspect-ratio: 5/4; }
+.tile img { object-fit: cover; }
+.badge { position: absolute; top: 12px; left: 12px; background: t.$maroon; color: t.$cream; font-size: .78rem; font-weight: 600; padding: 2px 12px; border-radius: 6px; z-index: 1; }
+.body { padding: 18px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.body h3 { font-size: 1.25rem; line-height: 1.4; font-weight: 800; }
+.body h3 small { display: block; font-size: .8rem; font-weight: 500; opacity: .75; font-family: Inter, sans-serif; }
+.body p { font-size: .95rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.chip {
+  min-height: 44px; padding: 0 16px; border-radius: t.$radius-pill; border: 1.5px solid #cdb685;
+  background: #fff; color: t.$brown; font: 500 .95rem Inter, sans-serif; cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: t.$brown; border-color: t.$brown; color: t.$cream; }
+.addBtn {
+  width: 100%; margin-top: 6px; min-height: 48px; border-radius: t.$radius-pill; border: 0;
+  background: t.$maroon; color: t.$cream; font: 600 1rem Inter, sans-serif; cursor: pointer;
+}
+.feature { grid-column: 1 / -1; }
+@media (min-width: 720px) {
+  .feature { flex-direction: row; }
+  .feature .tile { flex: 0 0 46%; aspect-ratio: auto; }
+  .feature .body { padding: 28px; }
+  .feature h3 { font-size: 1.7rem; }
+}

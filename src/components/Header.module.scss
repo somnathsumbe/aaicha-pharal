@@ -1,0 +1,23 @@
+@use "../styles/tokens" as t;
+.header { position: sticky; top: 0; z-index: 20; background: t.$cream; border-bottom: 1px solid t.$border-tint; }
+.bar { display: flex; align-items: center; gap: 16px; height: 64px; }
+.logo { text-decoration: none; margin-right: auto; display: block; }
+.logo img { height: 30px; width: auto; display: block; border-radius: 6px; }
+.nav { display: none; gap: 24px; font-weight: 500; }
+.nav a { text-decoration: none; padding: 6px 0; }
+.nav a:hover { color: t.$maroon; }
+.iconBtn {
+  width: 44px; height: 44px; border-radius: 50%; border: 0; background: transparent;
+  display: grid; place-items: center; cursor: pointer; position: relative; color: t.$brown;
+}
+.badge {
+  position: absolute; top: 2px; right: 0; background: t.$maroon; color: #fff;
+  font-size: .7rem; min-width: 18px; height: 18px; border-radius: 9px; display: grid; place-items: center; font-weight: 600;
+}
+.mobileMenu { border-top: 1px solid t.$border-tint; padding: 8px 20px 16px; }
+.mobileMenu a { display: block; padding: 12px 0; text-decoration: none; font-weight: 500; }
+@media (min-width: 960px) {
+  .nav { display: flex; }
+  .menuBtn { display: none; }
+  .logo img { height: 40px; }
+}

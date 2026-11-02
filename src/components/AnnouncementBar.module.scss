@@ -1,0 +1,9 @@
+@use "../styles/tokens" as t;
+.bar {
+  background: t.$brown;
+  color: t.$gold;
+  text-align: center;
+  font-size: .875rem;
+  padding: 6px 16px;
+  font-weight: 500;
+}
