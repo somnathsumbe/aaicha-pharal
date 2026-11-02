@@ -25,19 +25,24 @@ export default function OrderDialog({ open, onClose }: { open: boolean; onClose:
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
+    const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string | undefined>;
+    const name = (data.name ?? "").trim();
     const mobile = normalizeIndianMobile(data.mobile ?? "");
-    if ((data.name ?? "").trim().length < 2 || !mobile || (data.society ?? "").trim().length < 2 || !(data.flat ?? "").trim()) {
+    const society = (data.society ?? "").trim();
+    const flat = (data.flat ?? "").trim();
+
+    if (name.length < 2 || !mobile || society.length < 2 || !flat) {
       setError(t.form.errorGeneric);
       return;
     }
+
     setError("");
     const customer: CustomerDetails = {
-      name: data.name.trim(),
+      name,
       mobile,
-      society: data.society.trim(),
-      building: data.society.trim(),
-      flat: data.flat.trim(),
+      society,
+      building: society,
+      flat,
       instructions: data.instructions?.trim() || undefined
     };
     const url = buildWhatsAppUrl(buildOrderMessage(lines, customer));
